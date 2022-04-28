@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instytut Meteorologii</title>
+    <style>
+        div {
+            margin: 10px;
+        }
+    </style>
+
+</head>
+<body style="background-image: url('../static/background4.jpg'); background-size: cover;">
+<div style="text-align: right">
+    <button type="button" onclick="window.location.href='{{ url_for('adminPage') }}'">Powrót</button>
+</div>
+    <div>
+
+    </div>
+    <form method="post" action="/addNewUser" style="text-align: center; margin-top: 250px">
+        <h3>Dodaj nowego użytkownika</h3>
+        <div>
+            <label class="center" for="newUserLogin">Login: </label>
+            <input type="text" id="newUserLogin" name="newUserLogin" required>
+        </div>
+
+        <div>
+            <label class="center" for="newUserPassword">Hasło: </label>
+            <input type="password" id="newUserPassword" name="newUserPassword" required>
+        </div>
+
+        <div>
+            <input type="radio" id="admin" name="role" value="admin">
+            <label for="admin">Administrator</label>
+
+            <input type="radio" id="manager" name="role" value="manager">
+            <label for="manager">Kierownik</label>
+
+            <input type="radio" id="worker" name="role" value="worker" checked>
+            <label for="worker">Pracownik</label>
+        </div>
+        <div>
+            <input type="submit" value="Dodaj">
+
+        </div>
+    </form>
+      {% if result %}
+        <p style="text-align: center"><strong>{{ result }}</strong>
+      {% endif %}
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "search.html" %}
+
+{% block options %}
+    <button type="button" onclick="window.location.href='{{ url_for('addUserPage') }}'"
+            style="margin-top: 20px;margin-bottom: 20px">Dodaj użytkownika</button>
+
+{% endblock %}
+
+{#{% block edit_delete %}#}
+{#    <form method="post" action="/editPageAdmin">#}
+{#        <label for="id"></label>#}
+{#        <input type="hidden" name="id" id="id" value="{{ data["id"] }}">#}
+{#        <input type="submit" value="Edytuj">#}
+{#    </form>#}
+{##}
+{#    <form method="post" action="/deleteUser">#}
+{#        <label for="docID"></label>#}
+{#        <input type="hidden" name="docID" id="docID" value="{{ doc["id"] }}">#}
+{#        <input type="submit" value="Usuń">#}
+{#    </form>#}
+{#{% endblock %}#}

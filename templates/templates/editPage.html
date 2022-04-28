@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instytut Meteorologii</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/main.css">
+</head>
+<body style="background-image: url('../static/background4.jpg'); background-size: cover;">
+
+    <div style="text-align: right">
+        {% block backButton %}
+        {% endblock %}
+    </div>
+{#    {% if admin %}#}
+{#        <div style="text-align: right">#}
+{#            <button type="button" onclick="window.location.href='{{ url_for('adminPage') }}'">Powrót</button>#}
+{#        </div>#}
+{#    {% endif %}#}
+{#    {% if manager %}#}
+{#        <div style="text-align: right">#}
+{#            <button type="button" onclick="window.location.href='{{ url_for('managerPage') }}'">Powrót</button>#}
+{#        </div>#}
+{#    {% endif %}#}
+
+
+    {% block form %}
+    {% endblock %}
+{#    <form method="post" action="/updateDoc" style="text-align: center; margin-top: 250px">#}
+{##}
+{#        <label for="id"></label>#}
+{#        <input id="id" name="id" value="{{ docID }}" hidden>#}
+{#            <table style=" margin-left: auto; margin-right: auto">#}
+{#            {% for element in document.keys() %}#}
+{#                <tr>#}
+{#                    {% if element != "role" %}#}
+{#                    <td>#}
+{#                        <label for="{{ element }}">{{ element }}: </label>#}
+{#                    </td>#}
+{#                    <td>#}
+{#                        {%  if element in ["login", "password", "station_name", "date", "hour"] %}#}
+{#                            <input name="{{ element }}" id="{{element}}" value="{{ document[element] }}" required>#}
+{#                        {% endif %}#}
+{#                        {% if element not in ["login", "password", "station_name", "date", "hour"] %}#}
+{#                            <input name="{{ element }}" id="{{element}}" value="{{ document[element] }}">#}
+{#                        {% endif %}#}
+{#                    </td>#}
+{#                    {% endif %}#}
+{#                    {% if element == "role" %}#}
+{#                        <td colspan="2">#}
+{#                             <input type="radio" id="admin" name="role" value="administrator">#}
+{#                            <label for="admin">Administrator</label>#}
+{##}
+{#                            <input type="radio" id="manager" name="role" value="kierownik">#}
+{#                            <label for="manager">Kierownik</label>#}
+{##}
+{#                            <input type="radio" id="worker" name="role" value="pracownik" checked>#}
+{#                            <label for="worker">Pracownik</label>#}
+{#                        </td>#}
+{#                    {% endif %}#}
+{#                </tr>#}
+{#            {% endfor %}#}
+{#            </table>#}
+{#        <input type="submit" value="Aktualizuj" style="margin-top: 10px">#}
+{#    </form>#}
+
+    {% if result %}
+        <div style="text-align: center">
+            <p><strong>{{ result }}</strong></p>
+        </div>
+    {% endif %}
+</body>
+</html>

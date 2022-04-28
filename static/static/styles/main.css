@@ -1,0 +1,31 @@
+.entry {
+    margin-top: 70px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+div {
+    margin: 10px;
+}
+
+.center {
+    text-align: center;
+}
+
+img {
+    align-self: center;
+}
+
+.body_image
+{
+    background-image: url("../background4.jpg");
+    background-size: cover;
+}
+
+
+.centerSearch {
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 15px;
+    width: fit-content
+}

@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <title>Instytut Meteorologii</title>
+      <link rel="stylesheet" type="text/css" href="../static/styles/main.css">
+{#      <link rel="stylesheet" type="text/css" href="../static/styles/bootstrap.min.css">#}
+  </head>
+  <body>
+    <div class="center">
+        <div class="entry">
+        <img src="{{url_for('static', filename='mountains.png')}}" alt="Mountains icon">
+        </div>
+      <form class="center" method="post" action="/login">
+          <div class="center">
+              <label class="center" for="login">Login: </label>
+              <input type="text" name="login" id="login" required>
+          </div>
+
+          <div class="center">
+              <label for="password">Hasło: </label>
+              <input type="password" name="password" id="password" required>
+          </div>
+
+          <div class="center">
+              <input class="btn btn-default" type="submit" value="Zaloguj">
+          </div>
+
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+  </body>
+</html>

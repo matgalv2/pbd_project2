@@ -1,0 +1,72 @@
+{%  extends "editPage.html" %}
+
+{% block backButton %}
+    <button type="button" onclick="window.location.href='{{ url_for('managerPage') }}'">Powrót</button>
+{% endblock %}
+
+{% block form %}
+
+    <form method="post" action="/updateWeatherAction" style="text-align: center; margin-top: 250px">
+        <table style=" margin-left: auto; margin-right: auto">
+
+            <tr>
+                <td>
+                    <label for="stationId">Numer stacji: </label>
+                </td>
+                <td>
+                    <input name="stationId" id="stationId" value="{{ data["stationId"] }}" readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="time">Czas : </label>
+                </td>
+                <td>
+                    <input name="time" id="time" value="{{ data["time"] }}" readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="temperature">Temperatura : </label>
+                </td>
+                <td>
+                    <input name="temperature" id="temperature" value="{{ data["temperature"] }}" pattern="(^$|\d+[.]\d+)">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="windSpeed">Szybkość wiatru : </label>
+                </td>
+                <td>
+                    <input name="windSpeed" id="windSpeed" value="{{ data["windSpeed"] }}" pattern="(^$|\d+[.]\d+)">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="windDirection">Kierunek wiatru : </label>
+                </td>
+                <td>
+                    <input name="windDirection" id="windDirection" value="{{ data["windDirection"] }}" pattern="(^$|\d+[.]\d+)">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="pressure">Ciśnienie : </label>
+                </td>
+                <td>
+                    <input name="pressure" id="pressure" value="{{ data["pressure"] }}" pattern="(^$|\d+[.]\d+)">
+                </td>
+            </tr>
+
+
+
+        </table>
+        <input type="submit" value="Aktualizuj" style="margin-top: 10px">
+
+    </form>
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instytut Meteorologii</title>
+    <style>
+        div {
+            margin: 10px;
+        }
+    </style>
+
+</head>
+<body style="background-image: url('../static/background4.jpg'); background-size: cover;">
+<div style="text-align: right">
+    <button type="button" onclick="window.location.href='{{ url_for('diagnosticianPage') }}'">Powrót</button>
+</div>
+    <div>
+
+    </div>
+    <form method="post" action="/addDiagnosticianAction" style="text-align: center; margin-top: 250px">
+        <h3>Dodaj nowego diagnostę</h3>
+
+        <table style="margin-left: auto; margin-right: auto">
+            <tr>
+                <td><label class="center" for="name">Imię: </label></td>
+                <td><input type="text" id="name" name="name" required></td>
+            </tr>
+            <tr>
+                <td><label class="center" for="lastname">Nazwisko: </label></td>
+                <td><input type="text" id="lastname" name="lastname" required></td>
+            </tr>
+        </table>
+
+
+
+
+{#        <div>#}
+{#            <label class="center" for="code">Kod: </label>#}
+{#            <input type="code" id="code" name="code" required>#}
+{#        </div>#}
+
+        <div>
+            <input type="submit" value="Dodaj">
+
+        </div>
+    </form>
+      {% if result %}
+        <p style="text-align: center"><strong>{{ result }}</strong>
+      {% endif %}
+
+
+</body>
+</html>

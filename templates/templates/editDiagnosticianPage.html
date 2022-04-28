@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instytut Meteorologii</title>
+    <style>
+        div {
+            margin: 10px;
+        }
+    </style>
+
+</head>
+<body style="background-image: url('../static/background4.jpg'); background-size: cover;">
+<div style="text-align: right">
+    <button type="button" onclick="window.location.href='{{ url_for('diagnosticianPage') }}'">Powrót</button>
+</div>
+    <div>
+
+    </div>
+    <form method="post" action="/updateDiagnosticianAction" style="text-align: center; margin-top: 250px">
+
+
+        <table style="margin-left: auto; margin-right: auto">
+            <tr>
+                <td><label class="center" for="idDiagnostician">Id: </label></td>
+                <td><input type="text" id="idDiagnostician" name="idDiagnostician" readonly value="{{ data["idDiagnostician"] }}"></td>
+            </tr>
+            <tr>
+                <td><label class="center" for="name">Imię: </label></td>
+                <td><input type="text" id="name" name="name" required value="{{ data["name"] }}"></td>
+            </tr>
+            <tr>
+                <td><label class="center" for="lastname">Nazwisko: </label></td>
+                <td><input type="text" id="lastname" name="lastname" required value="{{ data["lastname"] }}"></td>
+            </tr>
+        </table>
+
+        <div>
+            <input type="submit" value="Aktualizuj">
+
+        </div>
+    </form>
+      {% if result %}
+        <p style="text-align: center"><strong>{{ result }}</strong>
+      {% endif %}
+
+
+</body>
+</html>

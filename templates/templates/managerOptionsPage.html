@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instytut Meteorologii</title>
+</head>
+<body style="background-image: url('../static/background4.jpg'); background-size: cover; background-attachment: fixed">
+    <div style="text-align: right;">
+        <button type="button" onclick="window.location.href='{{ url_for('home') }}'" style="">Wyloguj</button>
+    </div>
+
+    <div style="text-align: center; margin-top: 150px;">
+        <button type="button" onclick="window.location.href='{{ url_for('managerPage') }}'" style="">Dane pogodowe</button>
+        <button type="button" onclick="window.location.href='{{ url_for('diagnosticianPage') }}'" style="">Diagności</button>
+        <button type="button" onclick="window.location.href='{{ url_for('home') }}'" style="">Przypisania</button>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instytut Meteorologii</title>
+{#    <link rel="stylesheet" type="text/css" href="../static/styles/main.css">#}
+</head>
+<body style="background-image: url('../static/background4.jpg'); background-size: cover; background-attachment: fixed">
+    <div style="text-align: right;">
+        <button type="button" onclick="window.location.href='{{ url_for('managerOptionsPage') }}'">Powrót</button>
+        <button type="button" onclick="window.location.href='{{ url_for('home') }}'" style="">Wyloguj</button>
+    </div>
+    <div style="text-align: center; margin-top: 50px">
+    </div>
+        {% if result %}
+        <div style="text-align: center">
+            <p><strong>{{ result }}</strong></p>
+        </div>
+        {% endif %}
+
+
+        <button type="button" onclick="window.location.href='{{ url_for('addDiagnosticianPage') }}'"
+        style="margin-top: 20px;margin-bottom: 20px">Dodaj diagnostę</button>
+
+        {% for doc in allDocuments %}
+        <div style="border: 1px solid gray; border-radius: 15px">
+            <p>{% for key in doc.keys() %}
+                {{ key }}: {{ doc[key] if doc[key] != "" else "null"}}<br>
+            {% endfor %}
+            </p>
+                <form method="post" action="/editDiagnosticianPage" style="margin-left: 3px">
+                    <label for="idDiagnostician"></label>
+                    <input type="hidden" name="idDiagnostician" id="idDiagnostician" value="{{ doc["idDiagnostician"] }}">
+                    <input type="submit" value="Edytuj">
+                </form>
+
+                <form method="post" action="/deleteDiagnosticianAction" style="margin-bottom: 5px; margin-left: 3px">
+                    <label for="idDiagnostician"></label>
+                    <input type="hidden" name="idDiagnostician" id="idDiagnostician" value="{{ doc["idDiagnostician"] }}">
+                    <input type="submit" value="Usuń">
+                </form>
+        </div>
+    {% endfor %}
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% extends "editPage.html" %}
+
+
+{% block backButton %}
+    <button type="button" onclick="window.location.href='{{ url_for('adminPage') }}'">Powrót</button>
+{% endblock %}
+
+
+{% block form %}
+    <form method="post" action="/updateUserAction" style="text-align: center; margin-top: 250px">
+        <table style=" margin-left: auto; margin-right: auto">
+
+            <tr>
+                <td>
+                    <label for="id">ID: </label>
+                </td>
+                <td>
+                    <input name="id" id="id" value="{{ data["id"] }}" readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="login">Login : </label>
+                </td>
+                <td>
+                    <input name="login" id="login" value="{{ data["login"] }}" readonly>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="password">Hasło : </label>
+                </td>
+                <td>
+                    <input name="password" id="password" value="{{ data["password"] }}" required>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="radio" id="admin" name="role" value="admin" required>
+                    <label for="admin">Administrator</label>
+
+                    <input type="radio" id="manager" name="role" value="manager">
+                    <label for="manager">Kierownik</label>
+
+                    <input type="radio" id="worker" name="role" value="worker">
+                    <label for="worker">Pracownik</label>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Aktualizuj" style="margin-top: 10px">
+
+    </form>
+{% endblock %}

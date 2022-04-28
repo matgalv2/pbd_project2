@@ -1,0 +1,30 @@
+{% extends "search.html" %}
+{% block backButton %}
+    <button type="button" onclick="window.location.href='{{ url_for('managerOptionsPage') }}'">Powrót</button>
+{% endblock %}
+
+{% block options %}
+    <button type="button" onclick="window.location.href='{{ url_for('addWeatherPage') }}'"
+    style="margin-top: 20px;margin-bottom: 20px">Dodaj dane pogodowe</button>
+{% endblock %}
+
+
+{#{% block edit_delete %}#}
+{#    <form method="post" action="/editPage">#}
+{##}
+{#        <label for="station"></label>#}
+{#        <input type="hidden" name="station" id="station" value="{{ doc["stationId"] }}">#}
+{#        <label for="time"></label>#}
+{#        <input type="hidden" name="time" id="time" value="{{ doc["time"] }}">#}
+{#        <input type="submit" value="Edytuj">#}
+{#    </form>#}
+{##}
+{#    <form method="post" action="/deleteDoc">#}
+{#        <label for="stationId"></label>#}
+{#        <input type="hidden" name="stationId" id="stationId" value="{{ doc["stationId"] }}">#}
+{#        <label for="time"></label>#}
+{#        <input type="hidden" name="time" id="time" value="{{ doc["time"] }}">#}
+{#        <input type="submit" value="Usuń">#}
+{#    </form>#}
+{##}
+{#{% endblock %}#}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instytut Meteorologii</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/main.css">
+
+</head>
+<body style="background-image: url('../static/background4.jpg'); background-size: cover;">
+<div style="text-align: right">
+    <button type="button" onclick="window.location.href='{{ url_for('managerPage') }}'">Powrót</button>
+</div>
+
+    <form method="post" action="/addWeatherAction" style="text-align: center; margin-top: 250px">
+        <h3>Dodaj nowe dane pogodowe</h3>
+        <table style=" margin-left: auto; margin-right: auto">
+            {% for parameter in weatherParameters %}
+            <tr>
+                <td>
+                    <label for="{{ parameter }}">{{ parameter }}</label>
+                </td>
+                <td>
+                    {% if parameter == "time" %}
+                    <input name="{{ parameter }}" id="{{ parameter }}" required placeholder="YYYY-MM-DD HH"
+                    pattern="\d{4}-\d{2}-\d{2} \d{1,2}">
+                    {% endif %}
+
+                    {% if parameter == "stationId" %}
+                        <input type="number" name="{{ parameter }}" id="{{ parameter }}" required pattern="\d+">
+                    {% endif %}
+
+                    {% if parameter != "time" and parameter != "stationId"%}
+                    <input name="{{ parameter }}" id="{{ parameter }}" pattern="(^$|\d+[.]\d+)">
+                    {% endif %}
+
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <input type="submit" value="Dodaj">
+    </form>
+      {% if result %}
+        <p style="text-align: center"><strong>{{ result }}</strong>
+      {% endif %}
+
+
+</body>
+</html>
